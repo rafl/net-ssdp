@@ -1,0 +1,16 @@
+*.c
+*.o
+MANIFEST*
+!MANIFEST.SKIP
+Makefile*
+!Makefile.PL
+*.bs
+Net-SSDP-*
+build
+*blib
+inc
+META.yml
+README
+Debian*
+.*
+!.gitignore
