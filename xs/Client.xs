@@ -1,6 +1,6 @@
 #include "perl_gssdp.h"
 
-PACKAGE = Net::SSDP::Client  PACKAGE = Net::SSDP::Client  PREFIX = gssdp_client_
+MODULE = Net::SSDP::Client  PACKAGE = Net::SSDP::Client  PREFIX = gssdp_client_
 
 PROTOTYPES: DISABLE
 
@@ -32,7 +32,7 @@ gssdp_client_get_main_context (client)
 		GSSDPClient *client
 
 void
-gssdp_client_set_server_id (client, server_id
+gssdp_client_set_server_id (client, server_id)
 		GSSDPClient *client
 		const char *server_id
 
