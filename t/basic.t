@@ -16,7 +16,6 @@ $group->set_available(1);
 
 my $browser = Net::SSDP::ResourceBrowser->new($client);
 isa_ok($browser, 'Net::SSDP::ResourceBrowser');
-
 $browser->set_active(1);
 
 $browser->signal_connect('resource-available' => sub {
@@ -27,7 +26,17 @@ $browser->signal_connect('resource-available' => sub {
     is_deeply($locations, ['moo']);
     is($user_data, 'foo');
 
-    $mainloop->quit;
+    $browser->signal_connect('resource-unavailable' => sub {
+        my ($cb_browser, $usn, $user_data) = @_;
+        return unless $usn eq 'uuid:42';
+
+        is($cb_browser, $browser);
+        is($user_data, 'bar');
+
+        $mainloop->quit;
+    }, 'bar');
+
+    $group->set_available(0);
 }, 'foo');
 
 # we'll just quite testing if we couldn't find our resources within 10 seconds
