@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-package Module::Install::PRIVATE::GSSDP;
+package Module::Install::PRIVATE::NetGSSDP;
 
 use base qw/Module::Install::Base/;
 
@@ -15,7 +15,6 @@ use ExtUtils::PkgConfig;
 use File::Spec::Functions 'catfile';
 
 sub gssdp {
-    die 42;
     my ($self) = @_;
 
     mkdir 'build', 0777;
