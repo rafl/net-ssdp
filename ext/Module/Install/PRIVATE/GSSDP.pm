@@ -3,7 +3,7 @@ use warnings;
 
 package Module::Install::PRIVATE::GSSDP;
 
-use parent qw/Module::Install::Base/;
+use base qw/Module::Install::Base/;
 
 our $VERSION = '0.01';
 
