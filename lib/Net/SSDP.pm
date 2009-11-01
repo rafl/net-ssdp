@@ -48,6 +48,7 @@ Net::SSDP - Simple Service Discovery Protocol implementation
 
 This module is an implementation of the Simple Service Discovery Protocol
 (SSDP). It allows network clients to discover and announce network services.
+SSDP is the basis of Universal Plug and Play (UPnP).
 
 =head1 SEE ALSO
 
