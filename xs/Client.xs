@@ -7,8 +7,8 @@ PROTOTYPES: DISABLE
 GSSDPClient *
 gsspd_client_new (class, ...)
 		PREINIT:
-			GMainContext *main_context
-			const char *interface
+			GMainContext *main_context;
+			const char *interface;
 			GError *err = NULL;
 		INIT:
 			if (items > 1) {
