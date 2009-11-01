@@ -11,7 +11,7 @@ isa_ok($client, 'Net::SSDP::Client');
 
 my $group = Net::SSDP::ResourceGroup->new($client);
 isa_ok($group, 'Net::SSDP::ResourceGroup');
-$group->add_resource('foo:bar', 'uuid:42', 'moo');
+$group->add_resource('foo:bar', 'uuid:42', 'moo', 'kooh');
 $group->set_available(1);
 
 my $browser = Net::SSDP::ResourceBrowser->new($client);
@@ -23,7 +23,7 @@ $browser->signal_connect('resource-available' => sub {
     return unless $usn eq 'uuid:42';
 
     is($cb_browser, $browser);
-    is_deeply($locations, ['moo']);
+    is_deeply($locations, ['moo', 'kooh']);
     is($user_data, 'foo');
 
     $browser->signal_connect('resource-unavailable' => sub {

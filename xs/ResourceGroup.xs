@@ -58,6 +58,7 @@ gssdp_resource_group_add_resource (resource_group, target, usn, location1, ...)
 		locations = g_list_append (locations, (gpointer)location1);
 		while (i < items) {
 			locations = g_list_append (locations, SvPV_nolen (ST (i)));
+			i++;
 		}
 	C_ARGS:
 		resource_group, target, usn, locations
