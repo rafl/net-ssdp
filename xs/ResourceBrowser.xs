@@ -8,6 +8,10 @@ GSSDPResourceBrowser *
 gssdp_resource_browser_new (class, client, target)
 		GSSDPClient *client
 		const char *target
+    INIT:
+        if (!target || !strlen (target)) {
+            croak ("Net::SSDP::ResourceBrowser->new: target needs to be defined and not empty");
+        }
 	C_ARGS:
 		client, target
 
