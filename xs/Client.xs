@@ -12,16 +12,16 @@ gssdp_client_new (class, ...)
 			GError *err = NULL;
 		INIT:
 			if (items > 1) {
-				interface = SvPV_nolen (ST (1));
-			}
-
-			if (items > 2) {
-				if (!gperl_sv_is_defined (ST (2)) || !SvROK (ST (2))) {
+				if (!gperl_sv_is_defined (ST (1)) || !SvROK (ST (1))) {
 					main_context = NULL;
 				}
 				else {
-					main_context = INT2PTR (GMainContext *, SvIV (SvRV (ST (2))));
+					main_context = INT2PTR (GMainContext *, SvIV (SvRV (ST (1))));
 				}
+			}
+
+			if (items > 2) {
+				interface = SvPV_nolen (ST (2));
 			}
 
 			if (items > 3) {
