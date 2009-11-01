@@ -5,7 +5,7 @@ MODULE = Net::SSDP::ResourceBrowser  PACKAGE = Net::SSDP::ResourceBrowser  PREFI
 PROTOTYPES: DISABLE
 
 GSSDPResourceBrowser *
-gssdp_resource_browser_new (class, client, target)
+gssdp_resource_browser_new (class, client, target=GSSDP_ALL_RESOURCES)
 		GSSDPClient *client
 		const char *target
     INIT:
