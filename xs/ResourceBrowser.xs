@@ -57,10 +57,10 @@ GSSDPResourceBrowser *
 gssdp_resource_browser_new (class, client, target=GSSDP_ALL_RESOURCES)
 		GSSDPClient *client
 		const char *target
-    INIT:
-        if (!target || !strchr (target, ':')) {
-            croak ("Net::SSDP::ResourceBrowser->new: target needs to be defined and contain a colon");
-        }
+	INIT:
+		if (!target || !strchr (target, ':')) {
+			croak ("Net::SSDP::ResourceBrowser->new: target needs to be defined and contain a colon");
+	}
 	C_ARGS:
 		client, target
 

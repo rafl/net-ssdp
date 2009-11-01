@@ -30,9 +30,9 @@ gssdp_client_new (class, ...)
 		C_ARGS:
 			main_context, interface, &err
 		POSTCALL:
-            if (!RETVAL) {
-			    gperl_croak_gerror (NULL, err);
-            }
+			if (!RETVAL) {
+				gperl_croak_gerror (NULL, err);
+			}
 
 GMainContext *
 gssdp_client_get_main_context (client)
