@@ -5,7 +5,7 @@ MODULE = Net::SSDP::Client  PACKAGE = Net::SSDP::Client  PREFIX = gssdp_client_
 PROTOTYPES: DISABLE
 
 GSSDPClient *
-gsspd_client_new (class, ...)
+gssdp_client_new (class, ...)
 		PREINIT:
 			GMainContext *main_context;
 			const char *interface;
