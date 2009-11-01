@@ -51,9 +51,9 @@ gssdp_resource_group_add_resource (resource_group, target, usn, location1, ...)
 		GList *locations = NULL;
 		IV i = 4;
 	INIT:
-		g_list_append (locations, location1);
+		locations = g_list_append (locations, (gpointer)location1);
 		while (i < items) {
-			g_list_append (locations, SvPV_nolen (ST (i)));
+			locations = g_list_append (locations, SvPV_nolen (ST (i)));
 		}
 	C_ARGS:
 		resource_group, target, usn, locations
