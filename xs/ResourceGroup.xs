@@ -51,6 +51,10 @@ gssdp_resource_group_add_resource (resource_group, target, usn, location1, ...)
 		GList *locations = NULL;
 		IV i = 4;
 	INIT:
+		if (!target || !strchr (target, ':')) {
+			croak ("Net::SSDP::ResourceGroup->add_resource: target needs to be defined and contain a colon");
+		}
+
 		locations = g_list_append (locations, (gpointer)location1);
 		while (i < items) {
 			locations = g_list_append (locations, SvPV_nolen (ST (i)));
