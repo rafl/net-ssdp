@@ -35,7 +35,7 @@ sub gssdp {
     my @xs_files = <xs/*.xs>;
 
     my $gssdp = ExtUtils::Depends->new('Net::GSSDP', 'Glib');
-    $gssdp->set_inc($pkgconfig{cflags} . ($Module::Install::AUTHOR ? ' -Wall -Werror' : ''));
+    $gssdp->set_inc($pkgconfig{cflags} . ' -Ibuild' . ($Module::Install::AUTHOR ? ' -Wall -Werror' : ''));
     $gssdp->set_libs($pkgconfig{libs});
     $gssdp->add_xs(@xs_files);
     $gssdp->add_pm('lib/Net/SSDP.pm' => '$(INST_LIBDIR)/SSDP.pm');
